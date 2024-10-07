@@ -1,4 +1,3 @@
-/* Reset basic styles */
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +14,6 @@ body, html {
   overflow-x: hidden;
 }
 
-/* Layout structure */
 .landing-page {
   display: flex;
   flex-direction: column;
@@ -26,7 +24,6 @@ body, html {
   padding: 0 20px;
 }
 
-/* Header with logo on the left and buttons on the right */
 header {
   width: 100%;
   display: flex;
@@ -35,7 +32,6 @@ header {
   padding: 10px 20px;
 }
 
-/* Logo container */
 .logo-container {
   margin-top: 1%;
   display: flex;
@@ -48,7 +44,6 @@ header {
   height: auto;
 }
 
-/* Top-right buttons */
 .top-right-button {
   margin-top: 2%;
   margin-right: 60px;
@@ -113,8 +108,8 @@ header {
 
 .top-right-button .btn:active{
   color: #000;
-
 }
+
 .top-right-button .btn:active:after {
   background: transparent;
 }
@@ -135,29 +130,30 @@ header {
   border-radius: 10px;
 }
 
-/* Main content layout */
 .content-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 20px 50px;
+  padding: 0px 50px;
   flex-grow: 1;
   gap: 50px;
+  margin-top: 0;
 }
 
-/* Text container on the left */
 .text-container {
   max-width: 50%;  
   text-align: center;
 }
-.top-text{
+
+.top-text {
   font-size: 20px;
   text-align: center;
   color: white;
   letter-spacing: 1px;
   margin-bottom: 0px;
 }
+
 .center-text {
   font-size: 50px;
   text-align: center;
@@ -175,18 +171,17 @@ header {
   max-width: 5950px;
 }
 
-.phone-image-container {
-  max-width: 45%;  
+.video-container {
+  max-width: 25%;  
   display: flex;
   justify-content: flex-end;
-  margin-top: 20px;
+  margin-top: -50px;
 }
 
-.phone-image {
-  width: 400px;  
-  max-width: 400px;
+.video {
+  width: 100%;  /* Makes the video responsive */
   height: auto;
-  object-fit: cover;
+  border-radius: 10px; /* Optional: to round corners */
 }
 
 .bottom-btn {
@@ -235,29 +230,89 @@ header {
   background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
 }
 
+.card-image-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Aligns items to the start */
+  margin: 20px;
+  margin-top: 70px;
+  height: auto; /* Adjust height if needed */
+}
+
+.image-container {
+  max-width: 50%; 
+  display: flex;
+  justify-content: center; 
+}
+
+.phone-image {
+  width: 100%;
+  max-width: 400px; 
+  border-radius: 10px; 
+}
+
 .card-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start; 
   flex-wrap: wrap;
   margin: 20px;
+  margin-top: 200px; 
+  height: auto;
 }
 
 .card {
   background-color: #1a1a2e;
   color: white;
   border-radius: 10px;
-  padding: 30px; /* Increased padding */
+  padding: 40px; 
   margin: 10px;
   text-align: center;
-  width: 250px; /* Adjust width as necessary */
-  min-height: 200px; /* Set a minimum height for the cards */
+  width: 300px;
+  min-height: 250px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes glowingShadow {
+  0% {
+    box-shadow: 
+      0 8px 16px rgba(255, 0, 0, 0.4),
+      0 0 20px rgba(255, 115, 0, 0.4),
+      0 0 30px rgba(255, 251, 0, 0.4),
+      0 0 40px rgba(72, 255, 0, 0.4),
+      0 0 50px rgba(0, 253, 213, 0.4),
+      0 0 60px rgba(0, 43, 255, 0.4),
+      0 0 70px rgba(122, 0, 255, 0.4),
+      0 0 80px rgba(255, 0, 200, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 8px 16px rgba(0, 255, 0, 0.4),
+      0 0 20px rgba(0, 115, 255, 0.4),
+      0 0 30px rgba(0, 251, 255, 0.4),
+      0 0 40px rgba(72, 0, 255, 0.4),
+      0 0 50px rgba(255, 0, 72, 0.4),
+      0 0 60px rgba(255, 43, 0, 0.4),
+      0 0 70px rgba(255, 122, 0, 0.4),
+      0 0 80px rgba(200, 0, 255, 0.4);
+  }
+  100% {
+    box-shadow: 
+      0 8px 16px rgba(255, 0, 0, 0.4),
+      0 0 20px rgba(255, 115, 0, 0.4),
+      0 0 30px rgba(255, 251, 0, 0.4),
+      0 0 40px rgba(72, 255, 0, 0.4),
+      0 0 50px rgba(0, 253, 213, 0.4),
+      0 0 60px rgba(0, 43, 255, 0.4),
+      0 0 70px rgba(122, 0, 255, 0.4),
+      0 0 80px rgba(255, 0, 200, 0.4);
+  }
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05);
+  animation: glowingShadow 2s ease-in-out infinite; /* Apply glowing shadow animation */
 }
 
 .card-title {
@@ -270,80 +325,77 @@ header {
   margin-bottom: 20px;
 }
 
-
 @media (max-width: 1024px) {
   .content-container {
     padding: 20px;
-    flex-direction: column; /* Stack text and image vertically */
-    align-items: center; /* Center-align content */
+    flex-direction: column;
+    align-items: center; 
   }
 
   .text-container {
     max-width: 100%;
-    text-align: center; /* Center text for smaller screens */
-    margin-bottom: 20px; /* Add spacing below text */
+    text-align: center; 
+    margin-bottom: 20px; 
   }
 
   .phone-image-container {
-    max-width: 80%; /* Adjust the width of the image container */
-    margin: 0; /* Remove extra margins */
+    max-width: 80%; 
+    margin: 0; 
   }
 
   .phone-image {
-    width: 100%; /* Make the image responsive */
-    max-width: 300px; /* Limit max width */
+    width: 100%;
+    max-width: 300px;
   }
 
   .center-text {
-    font-size: 2.5rem; /* Smaller font size for medium screens */
+    font-size: 2.5rem; 
   }
 
   .sub-text {
-    font-size: 1rem; /* Smaller sub-text */
+    font-size: 1rem; 
   }
 }
 
-/* Small screens (mobile devices) */
 @media (max-width: 768px) {
   .top-right-buttons .btn {
-    font-size: 14px; /* Smaller button text */
-    padding: 8px 12px; /* Adjust padding */
+    font-size: 14px; 
+    padding: 8px 12px; 
   }
 
   .logo {
-    width: 150px; /* Reduce logo size */
+    width: 150px;
   }
 
   .center-text {
-    font-size: 2rem; /* Reduce font size */
+    font-size: 2rem; 
   }
 
   .sub-text {
-    font-size: 0.9rem; /* Reduce sub-text size */
+    font-size: 0.9rem; 
   }
 
   .phone-image {
-    width: 100%; /* Make the image responsive */
-    max-width: 300px; /* Limit max width */
+    width: 100%;
+    max-width: 300px;
   }
 }
 
-/* Very small screens (small phones) */
 @media (max-width: 480px) {
   .center-text {
-    font-size: 1.5rem; /* Smaller font size */
+    font-size: 1.5rem; 
   }
 
   .sub-text {
-    font-size: 0.8rem; /* Smaller sub-text */
+    font-size: 0.8rem; 
   }
 
   .phone-image {
-    max-width: 90%; /* Allow image to take more space */
+    max-width: 90%; 
   }
 
   .bottom-btn {
-    font-size: 12px; /* Smaller bottom button text */
-    padding: 10px 20px; /* Adjust padding */
+    font-size: 12px; 
+    padding: 10px 20px;
   }
 }

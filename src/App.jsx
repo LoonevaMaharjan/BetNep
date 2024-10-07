@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import logo from './betbot.png';
-import phoneImage from './phone.png'; // Import the phone image
+import videoFile from './phonevideo.mp4'; 
+import phoneImage from './phonee.png';
 
 function App() {
 
@@ -18,18 +19,15 @@ function App() {
   // Handler for Connect to Wallet button
   const connectToWallet = () => {
     alert('Connecting to Wallet...');
-    // You can add actual wallet connection logic here, e.g., using web3 or other crypto wallet APIs
   };
 
   // Handler for Start a Bet button
   const startBet = () => {
     alert('Starting a new bet...');
-    // You can add logic here to start a betting flow or navigate to a betting page
   };
 
   return (
     <div className="landing-page">
-      {/* Header with two buttons at the top right */}
       <header>
 
         <div className="logo-container">
@@ -53,17 +51,24 @@ function App() {
           <button className="bottom-btn" onClick={startBet}>START A BET</button>
         </div>
 
-        {/* Phone image */}
-        <div className="phone-image-container">
-          <img src={phoneImage} alt="Phone with BetNep app" className="phone-image" />
+        <div className="video-container">
+          <video className="video" autoPlay muted loop>
+            <source src={videoFile} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </main>
 
-      {/* Cards section */}
-      <section className="card-container">
-        <Card title="Feature 1" description="asdfghjklqwertyuiop" />
-        <Card title="Feature 2" description="zxcvbnmqwertyuiop" />
-        <Card title="Feature 3" description="asdfghjklqwertyuiop" />
+
+      <section className="card-image-container">
+        <div className="image-container">
+          <img src={phoneImage} alt="Phone" className="phone-image" /> {/* Update the image source */}
+        </div>
+        <div className="card-container">
+          <Card title="Feature 1" description="Description of feature 1" />
+          <Card title="Feature 2" description="Description of feature 2" />
+          <Card title="Feature 3" description="Description of feature 3" />
+        </div>
       </section>
     </div>
   );
